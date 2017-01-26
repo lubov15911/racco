@@ -62,10 +62,6 @@ main {
   padding: 30px;
 }
 
-.articles {
-  max-width: calc(100%);
-}
-
 section {
   padding: 20px 0;
 }
@@ -162,11 +158,26 @@ aside {
 }
 
 .articles {
-  margin-right: 27px;
+  margin: 0 30px;
+  max-width: 640px;
+  padding-top: 15px;
 }
-article {
-  h3 {
 
+article {
+  padding-bottom: 50px;
+
+  a:hover {
+    text-decoration: underline;
+    color: @main-text-color;
+  }
+
+  h3 {
+    color: @main-text-color;
+    // TODO: there are duplicated parts! mixins
+    font-family: Arial;
+    font-size: 20px;
+    font-stretch: condensed;
+    padding: 10px 0;
   }
 
   .details {
@@ -179,10 +190,14 @@ article {
     align-items: center;
     margin-bottom: 15px;
 
-    .author {
+    .author-info {
       div {
         display: inline-block;
       }
+    }
+
+    .author-info > div:first-child {
+      margin-right: 20px;
     }
 
   }
@@ -246,20 +261,30 @@ article {
   .facebook {
     .icon(#3c5a98, -48px);
   }
-
   .google {
     .icon(#de512f, -72px);
   }
-
   .twitter {
     .icon(#00aced, -96px);
   }
-
   .vk {
     .icon(#48729e, -120px);
   }
-
   .yandex {
     .icon(#fa362f, -144px);
   }
+}
+
+.time {
+  height: 11px;
+  width: 11px;
+  background: url("../images/sprite.png");
+  background-position: -8px -168px;
+}
+
+.author {
+  height: 15px;
+  width: 8px;
+  background: url("../images/sprite.png");
+  background-position: 0 -168px;
 }
