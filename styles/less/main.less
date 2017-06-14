@@ -1,0 +1,60 @@
+@import "utils";
+@import "navigation";
+@import "aside";
+@import "articles";
+
+header, main {
+  padding: 15px 0;
+  margin: auto;
+}
+
+header {
+  a {
+    .flex-wrapper;
+    .align-items(center);
+
+    h1 {
+      .text-builder(@blueGray, TrendSansOne, 38, @height: auto);
+      font-weight: 100;
+      text-transform: uppercase;
+      margin: 4px 5px;
+    }
+  }
+
+  .logo {
+    width: 56px;
+    height: 56px;
+    .sprite;
+  }
+
+  @media screen and (max-width: 480px) {
+    padding: 10px 0;
+
+    a {
+      h1 {
+        font-size: 24px;
+      }
+
+      .logo {
+        width: 34px;
+        height: 34px;
+        background-position: 0 -386px;
+      }
+    }
+  }
+}
+
+main {
+  .flexbox;
+  .flex-direction(column);
+  .justify-content(center);
+  margin-top: 5px;
+
+  @media screen and (min-width: 1024px) {
+    .flex-direction(row-reverse);
+
+    .articles {
+      flex-shrink: 0;
+    }
+  }
+}

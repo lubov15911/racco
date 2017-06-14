@@ -1,0 +1,50 @@
+.sprite {
+  background: url("../../images/sprite.png");
+}
+
+.text-builder(@color, @font, @size, @height: auto) {
+  color: @color;
+  font-family: @font;
+  font-size: @size;
+  line-height: @height;
+}
+
+.icon(@color) {
+  &:hover {
+    background-color: @color;
+  }
+
+  @media screen and (max-width: 1024px) {
+    background-color: @color;
+  }
+}
+
+.flexbox {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.flex-direction(@direction: row) {
+  -webkit-flex-direction: @direction;
+  -ms-flex-direction: @direction;
+  flex-direction: @direction;
+}
+
+.justify-content(@justify: flex-start) {
+  -webkit-justify-content: @justify;
+  -ms-justify-content: @justify;
+  justify-content: @justify;
+}
+
+.align-items(@align) {
+  -webkit-align-items: @align;
+  -ms-align-items: @align;
+  align-items: @align;
+}
+
+.flex-wrapper {
+  .flexbox;
+  .flex-direction;
+  .justify-content(center);
+}

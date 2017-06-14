@@ -1,0 +1,229 @@
+@import "utils";
+
+.aside {
+  .flexbox;
+  .flex-direction(column);
+  max-width: 255px;
+}
+
+.about,
+.some-shit,
+.tags {
+  margin-top: 35px;
+
+  p {
+    .text-builder(@darkGray, Arial, 12px, 18px);
+    text-align: justify;
+  }
+}
+
+.title {
+  border-bottom: 5px solid @blueGray;
+  .flexbox;
+  margin-bottom: 18px;
+
+  .section-icon {
+    height: 24px;
+    width: 30px;
+    flex-shrink: 0;
+    margin-right: 12px;
+    .sprite;
+    background-color: @blueGray;
+  }
+
+  .icon-about {
+    background-position: 0 -156px;
+  }
+
+  .icon-something {
+    background-position: 0 -184px;
+  }
+
+  h2 {
+    .text-builder(@blueGray, TrendSansOne, 18px);
+    font-weight: 100;
+    text-transform: uppercase;
+  }
+}
+
+.tags {
+  .flex-wrapper;
+  .justify-content(flex-start);
+  flex-wrap: wrap;
+
+  .label {
+    .text-builder(white, Arial, 12px, 11px);
+    background-color: @blueGray;
+    padding: 4px 15px;
+    margin: 3px 13px 3px 0;
+    position: relative;
+
+    .circle {
+      background-color: white;
+      border-radius: 50%;
+      height: 8px;
+      width: 8px;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translate(0, -50%);
+      z-index: 20;
+    }
+
+    &:after {
+      content: '';
+      background-color: inherit;
+      width: 13px;
+      height: 13px;
+      position: absolute;
+      top: 3px;
+      right: -6.5px;
+      transform: rotate(45deg);
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: @darkWhiteBlue2;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .aside {
+    max-width: 100%;
+  }
+
+  .about,
+  .some-shit {
+    display: none;
+    margin-top: -13px;
+  }
+
+  .tags {
+    margin-top: 25px;
+    padding: 0 43px;
+    .justify-content(space-around);
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  #about-toggle:checked + .about,
+  #something-toggle:checked + .some-shit {
+    .flexbox;
+    overflow-x: hidden;
+
+    .title {
+      background-color: @dirtyWhite;
+      border-bottom: none;
+      margin-bottom: 0;
+      width: 43px;
+
+      .section-icon {
+        display: none;
+      }
+
+      h2 {
+        transform-origin: left top 0;
+        white-space: nowrap;
+        line-height: 43px;
+        height: 43px;
+      }
+    }
+
+    p {
+      margin: 35px 0 20px;
+      width: calc(~'100% - 43px');
+    }
+  }
+
+  #about-toggle:checked + .about {
+    p {
+      padding: 0 43px 0 20px;
+    }
+
+    @het: calc(~'-100% - 30px');
+
+    h2 {
+      transform: rotate(-90deg) translate(@het, 0);
+    }
+  }
+
+  #something-toggle:checked + .some-shit {
+    .flex-direction(row-reverse);
+
+    p {
+      padding: 0 20px 0 43px;
+    }
+
+    h2 {
+      transform: rotate(90deg) translate(30px, -100%);
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .tags {
+    display: none;
+    margin-top: -13px;
+  }
+
+  #about-toggle:checked + .about,
+  #something-toggle:checked + .some-shit,
+  #tags-toggle:checked + .tags {
+    .flexbox;
+    background-color: @whiteBlue2;
+    padding: 25px 15px 5px;
+  }
+
+  #about-toggle:checked + .about,
+  #something-toggle:checked + .some-shit {
+    .flex-direction(column-reverse);
+
+    .title {
+      border-bottom: none;
+      .flex-direction(row-reverse);
+      .justify-content(flex-start);
+      margin: 5px 0 0;
+
+      .section-icon {
+        background-color: inherit;
+        height: 24px;
+        width: 30px;
+        margin: 0;
+      }
+
+      .icon-about {
+        background-image: url("../images/images/blog-v03-Recovered_14.png");
+      }
+
+      .icon-something {
+        background-image: url("../images/images/blog-v03-Recovered_03.png");
+      }
+
+      h2 {
+        color: white;
+      }
+    }
+
+    p {
+      color: @darkBlueGray;
+    }
+  }
+
+  #tags-toggle:checked + .tags {
+    padding-bottom: 35px;
+
+    .label {
+      background-color: @lightBlue1;
+      color: @whiteBlue2;
+      margin-top: 7px;
+      margin-bottom: 7px;
+      position: relative;
+
+      .circle {
+        background-color: @whiteBlue2;
+      }
+    }
+  }
+}
+
