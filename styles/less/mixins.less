@@ -1,5 +1,5 @@
 .sprite {
-  background: url("../../images/sprite.png");
+  background-image: url("../../images/sprite.png");
 }
 
 .text-builder(@color, @font, @size, @height: auto) {
@@ -31,6 +31,23 @@
       background-position: 24px @position;
     }
   }
+}
+
+.arrow(@side, @top) {
+  content: '';
+  position: absolute;
+  z-index: 40;
+  left: 50%;
+  bottom: @top;
+  width: @side;
+  height: @side;
+  transform: translate(-50%) rotate(41deg) skewX(-9deg);
+}
+
+.arrow-colors(@color, @borderColor, @borderWidth) {
+  background-color: @color;
+  border-bottom: @borderWidth solid @borderColor;
+  border-right: @borderWidth solid @borderColor;
 }
 
 .flexbox {

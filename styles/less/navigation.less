@@ -60,6 +60,19 @@ nav {
   }
 }
 
+.selected-section {
+  position: relative;
+
+  &:after {
+    .arrow(12px, -8px);
+    .arrow-colors(@lightBlue2, @blue, 2px);
+  }
+}
+
+label[for="menu-toggle"].selected-section:after {
+  .arrow-colors(@blue, @blue, 2px);
+}
+
 @media screen and (max-width: 1024px) {
   nav {
     padding: 0 43px;
@@ -107,17 +120,14 @@ nav {
     }
 
     &:after {
-      content: '';
-      position: absolute;
-      left: 50%;
-      bottom: -15px;
-      background-color: @blue;
-      width: 15px;
-      height: 15px;
-      border-bottom: 4px solid @darkWhiteBlue1;
-      border-right: 4px solid @darkWhiteBlue1;
-      transform: translate(-50%) rotate(41deg) skewX(-9deg);
+      .arrow(15px, -15px);
+      .arrow-colors(@blue, @darkWhiteBlue1, 4px);
     }
+  }
+
+  .selected-section:after {
+    .arrow(15px, -12px);
+    .arrow-colors(inherit, @darkWhiteBlue1, 4px);
   }
 }
 
