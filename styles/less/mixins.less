@@ -9,13 +9,27 @@
   line-height: @height;
 }
 
-.icon(@color) {
-  &:hover {
-    background-color: @color;
+.icon(@defaultColor, @color, @position) {
+  background-color: @color;
+
+  &:before {
+    background-position: 24px @position;
   }
 
-  @media screen and (max-width: 1024px) {
-    background-color: @color;
+  @media screen and (min-width: 1024px) {
+    background-color: @defaultColor;
+
+    &:hover {
+      background-color: @color;
+    }
+
+    &:before {
+      background-position: 0 @position;
+    }
+
+    &:hover:before {
+      background-position: 24px @position;
+    }
   }
 }
 

@@ -68,6 +68,10 @@
   .time,
   .author {
     .justify-content(center);
+
+    a:hover {
+      text-decoration: underline;
+    }
   }
 
   .time {
@@ -76,13 +80,16 @@
 }
 
 .publishing {
+  display: flex;
   button {
     .text-builder(white, Arial, 14px, 24px);
     border: none;
     height: 24px;
-    background-color: @gray;
     border-radius: 3px;
-    position: relative;
+    padding-left: 0;
+    padding-top: 0;
+    margin-right: 6px;
+    display: flex;
 
     &:focus {
       outline: none;
@@ -90,40 +97,35 @@
   }
 
   .facebook {
-    .icon(#3c5a98);
+    .icon(@gray, #3c5a98, 120px);
   }
   .google {
-    .icon(#de512f);
+    .icon(@gray, #de512f, 96px);
   }
   .twitter {
-    .icon(#00aced);
+    .icon(@gray, #00aced, 72px);
   }
   .vk {
-    .icon(#48729e);
+    .icon(@gray, #48729e, 48px);
   }
   .yandex {
-    .icon(#fa362f);
+    .icon(@gray, #fa362f, 24px);
   }
 
-  .demo-icon
-  {
-    font-family: "fontello";
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-
-    margin-right: .2em;
-    text-align: center;
-    /* opacity: .8; */
-
-    /* For safety - reset parent styles, that can break glyph codes*/
-    font-variant: normal;
-    text-transform: none;
-
-    /* fix buttons height, for twitter bootstrap */
-    line-height: 1em;
+  .facebook,
+  .google,
+  .twitter,
+  .vk,
+  .yandex {
+    &:before {
+      content: '';
+      height: 24px;
+      width: 24px;
+      margin-right: 6px;
+      display: inline-block;
+      background-image: url('../../images/sprite.png');
+    }
   }
-
 }
 
 .spiner {
